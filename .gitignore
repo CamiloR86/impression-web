@@ -1,0 +1,16 @@
+# Node (si usas npm en el futuro)
+node_modules/
+package-lock.json
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Archivos temporales
+*.swp
+*.swo
+*~
