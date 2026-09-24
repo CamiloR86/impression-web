@@ -11,8 +11,8 @@
 const CONFIG = {
   // Número de WhatsApp con código de país, SIN + ni espacios ni guiones.
   // Ejemplo EE.UU.: 1 + área + número  ->  "12015551234"
-  whatsapp: "12015550123",           // <-- CAMBIA por tu número real
-  email:    "hola@impressionbp.com", // <-- CAMBIA por tu correo real
+  whatsapp: "12017137750",           // <-- CAMBIA por tu número real
+  email:    "info@impressionbp.com", // <-- CAMBIA por tu correo real
   instagram:"impression.bp",         // <-- CAMBIA por tu usuario de Instagram (sin @)
 
   defaultLang: "en",                 // idioma con el que carga la página ("en" o "es")
