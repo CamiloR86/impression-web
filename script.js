@@ -14,6 +14,7 @@ const CONFIG = {
   whatsapp: "12017137750",           // <-- CAMBIA por tu número real
   email:    "info@impressionbp.com", // <-- CAMBIA por tu correo real
   instagram:"impression.bp",         // <-- CAMBIA por tu usuario de Instagram (sin @)
+  web3forms: "f9e6b078-e56f-44d0-b7b2-f83f46151e63",
 
   defaultLang: "en",                 // idioma con el que carga la página ("en" o "es")
 };
@@ -73,8 +74,10 @@ const TRANSLATIONS = {
     form_phone_l:"Phone",
     form_msg_l:"What do you need?",
     form_msg_ph:"e.g. I have a small office and need an all-inclusive printer rental.",
-    form_send:"Send via WhatsApp",
-    form_note:"This opens WhatsApp with your message ready to send.",
+    form_send:"Send message",
+    form_note:"We'll reply to your email as soon as possible.",
+    form_ok:"Thanks! Your message was sent — we'll be in touch soon.",
+    form_err:"Something went wrong. Please try again or message us on WhatsApp.",
     // Footer
     foot_brand_p:"All-inclusive printer rentals for small businesses in northern New Jersey. Equipment, supplies and maintenance in one fee.",
     foot_menu_h:"Menu", foot_contact_h:"Contact",
@@ -133,8 +136,10 @@ const TRANSLATIONS = {
     form_phone_l:"Teléfono",
     form_msg_l:"¿Qué necesitas?",
     form_msg_ph:"Ej: Tengo una oficina pequeña y necesito una impresora en renta con todo incluido.",
-    form_send:"Enviar por WhatsApp",
-    form_note:"Al enviar se abrirá WhatsApp con tu mensaje listo.",
+    form_send:"Enviar mensaje",
+    form_note:"Te responderemos a tu correo lo antes posible.",
+    form_ok:"¡Gracias! Tu mensaje fue enviado — te contactaremos pronto.",
+    form_err:"Algo salió mal. Intenta de nuevo o escríbenos por WhatsApp.",
     // Footer
     foot_brand_p:"Renta de impresoras todo incluido para pequeños negocios del norte de Nueva Jersey. Equipo, suministros y mantenimiento en una sola cuota.",
     foot_menu_h:"Navegación", foot_contact_h:"Contacto",
@@ -219,30 +224,47 @@ const WA_GREETING = {
   const ig = document.getElementById('igLink');
   if(ig) ig.setAttribute('href','https://instagram.com/' + CONFIG.instagram);
 
-  // Formulario -> abre WhatsApp con el mensaje armado (en el idioma activo)
-  const sendBtn = document.getElementById('sendBtn');
+  // Formulario -> Esto lo edité yo, es el boton para que envié a web forms
+    const sendBtn = document.getElementById('sendBtn');
+  const formNote = document.querySelector('.form-note');
   if(sendBtn){
-    sendBtn.addEventListener('click', function(){
+    sendBtn.addEventListener('click', async function(){
+      const dict = TRANSLATIONS[currentLang];
       const nombre  = (document.getElementById('f-nombre').value  || '').trim();
       const negocio = (document.getElementById('f-negocio').value || '').trim();
       const tel     = (document.getElementById('f-tel').value     || '').trim();
       const msg     = (document.getElementById('f-msg').value     || '').trim();
 
-      let texto;
-      if(currentLang === 'es'){
-        texto = 'Hola Impression 👋\n';
-        if(nombre)  texto += 'Soy ' + nombre + '.\n';
-        if(negocio) texto += 'Negocio: ' + negocio + '.\n';
-        texto += msg ? ('\n' + msg + '\n') : '\nMe interesa la renta de impresoras todo incluido.\n';
-        if(tel)     texto += '\nMi teléfono: ' + tel;
-      } else {
-        texto = 'Hi Impression 👋\n';
-        if(nombre)  texto += "I'm " + nombre + '.\n';
-        if(negocio) texto += 'Business: ' + negocio + '.\n';
-        texto += msg ? ('\n' + msg + '\n') : "\nI'm interested in your all-inclusive printer rental.\n";
-        if(tel)     texto += '\nMy phone: ' + tel;
+      // Envía los datos a Web3Forms, que te los reenvía a tu correo
+      sendBtn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: CONFIG.web3forms,
+            subject: 'Nuevo mensaje desde impressionbp.com',
+            from_name: 'Impression Website',
+            Nombre: nombre,
+            Negocio: negocio,
+            Telefono: tel,
+            Mensaje: msg
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          if(formNote) formNote.textContent = dict.form_ok;
+          document.getElementById('f-nombre').value  = '';
+          document.getElementById('f-negocio').value = '';
+          document.getElementById('f-tel').value     = '';
+          document.getElementById('f-msg').value     = '';
+        } else {
+          if(formNote) formNote.textContent = dict.form_err;
+        }
+      } catch (e) {
+        if(formNote) formNote.textContent = dict.form_err;
       }
-      window.open(waBase + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+      sendBtn.disabled = false;
     });
   }
 
