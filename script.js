@@ -35,7 +35,7 @@ const TRANSLATIONS = {
     hero_lead:"We rent the printer, supply the toner and handle the maintenance. You just print. One monthly fee, no surprises.",
     hero_cta:"Message us on WhatsApp",
     hero_cta2:"How it works",
-    hero_trust:"Local service for businesses in Union City, West New York, North Bergen, Newark and Jersey City.",
+    hero_trust:"Local service for businesses throughout northern New Jersey.",
     // Benefits
     ben_eyebrow:"All inclusive",
     ben_title:"One service. Everything your printer needs.",
@@ -97,7 +97,7 @@ const TRANSLATIONS = {
     hero_lead:"Rentamos la impresora, ponemos los suministros y hacemos el mantenimiento. Tú solo imprimes. Una cuota mensual, cero sorpresas.",
     hero_cta:"Escríbenos por WhatsApp",
     hero_cta2:"Cómo funciona",
-    hero_trust:"Servicio local para negocios en Union City, West New York, North Bergen, Newark y Jersey City.",
+    hero_trust:"Servicio local para negocios en el norte de Nueva Jersey.",
     // Benefits
     ben_eyebrow:"Todo incluido",
     ben_title:"Un solo servicio. Todo lo que tu impresora necesita.",
