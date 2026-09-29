@@ -49,7 +49,7 @@ const TRANSLATIONS = {
     // About
     about_eyebrow:"About Impression",
     about_title:"A close partner, not a call center.",
-    about_p1:"Impression is a local printer-rental service for small businesses in northern New Jersey. Our model is simple: one fee that covers the equipment, the supplies and the maintenance.",
+    about_p1:"Impression is a local printer-rental service to businesses in northern New Jersey. Our model is simple: one fee that covers the equipment, the supplies and the maintenance.",
     about_p2:"No getting passed from department to department. You get one direct point of contact who knows your equipment and responds fast — so printing is the last thing you have to worry about.",
     stat1_l:"Businesses that trust us",
     stat2_l:"Northern NJ cities served",
@@ -112,7 +112,7 @@ const TRANSLATIONS = {
     // About
     about_eyebrow:"Sobre Impression",
     about_title:"Un aliado cercano, no un call center.",
-    about_p1:"Impression es un servicio local de renta de impresoras para pequeños negocios del norte de Nueva Jersey. Trabajamos con un modelo simple: una cuota que cubre el equipo, los suministros y el mantenimiento.",
+    about_p1:"Impression es un servicio local de renta de impresoras a negocios del norte de Nueva Jersey. Trabajamos con un modelo simple: una cuota que cubre el equipo, los suministros y el mantenimiento.",
     about_p2:"Aquí no te pasan de departamento en departamento. Tienes un punto de contacto directo que conoce tu equipo y responde rápido, para que imprimir sea lo último de lo que te tengas que preocupar.",
     stat1_l:"Negocios que confían en nosotros",
     stat2_l:"Ciudades del norte de NJ atendidas",
