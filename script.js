@@ -39,6 +39,7 @@ const TRANSLATIONS = {
     // Benefits
     ben_eyebrow:"All inclusive",
     ben_title:"One service. Everything your business needs to print.",
+    ben_cta:"Have a question? Message us",
     ben1_t:"Equipment always ready",
     ben1_p:"We install and set up a professional printer at your location. No purchase, no upfront cost — just turn it on and print.",
     ben2_t:"Supplies included",
@@ -101,6 +102,7 @@ const TRANSLATIONS = {
     // Benefits
     ben_eyebrow:"Todo incluido",
     ben_title:"Un solo servicio. Todo lo que tu negocio necesita para imprimir.",
+    ben_cta:"¿Tienes alguna duda? Escríbenos",
     ben1_t:"Equipo siempre listo",
     ben1_p:"Instalamos y configuramos una impresora profesional en tu local. Sin compra, sin inversión inicial: solo enciendes e imprimes.",
     ben2_t:"Suministros incluidos",

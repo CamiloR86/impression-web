@@ -295,3 +295,8 @@ a{color:inherit;text-decoration:none}
 .lang-btn:hover{border-color:var(--ink-blue);background:var(--paper-soft)}
 .lang-btn svg{width:15px;height:15px;fill:currentColor}
 
+/* ---------- Botón CTA debajo de los beneficios ---------- */
+.benefits-cta{
+  text-align:center;      /* centra el botón */
+  margin-top:48px;        /* separa el botón de las tarjetas */
+}
